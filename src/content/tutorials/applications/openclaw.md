@@ -4,6 +4,7 @@ description: "Run a fully local AI personal assistant on Jetson with OpenClaw an
 category: "Applications"
 section: "AI Agents"
 order: 2
+hero_image: "/images/tutorials/openclaw-whatsapp-demo.png"
 tags: ["openclaw", "ollama", "vllm", "qwen3.5", "nemotron", "jetson-orin-nano", "jetson-orin", "jetson-thor", "agent", "local-llm", "tool-calling", "whatsapp"]
 isNew: true
 hideMigrationNotice: true

@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import TutorialLayout from '../../layouts/TutorialLayout.astro';
+
+export async function getStaticPaths() {
+  const applications = (await getCollection('tutorials'))
+    .filter((entry) => entry.data.category === 'Applications');
+
+  return applications.map((application) => ({
+    params: { slug: application.slug.split('/').pop() },
+    props: { tutorialId: application.slug },
+  }));
+}
+
+interface Props {
+  tutorialId: string;
+}
+
+const { tutorialId } = Astro.props;
+---
+
+<TutorialLayout tutorialId={tutorialId} contentType="application" />

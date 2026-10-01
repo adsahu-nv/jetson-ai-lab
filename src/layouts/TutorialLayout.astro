@@ -4,13 +4,18 @@ import { getCollection } from 'astro:content';
 
 export interface Props {
   tutorialId: string;
+  contentType?: 'tutorial' | 'application';
   frontmatter?: {
     tutorialId?: string;
   };
 }
 
-const { tutorialId: directTutorialId, frontmatter } = Astro.props;
+const { tutorialId: directTutorialId, contentType = 'tutorial', frontmatter } = Astro.props;
 const tutorialId = directTutorialId ?? frontmatter?.tutorialId;
+const isApplication = contentType === 'application';
+const contentLabel = isApplication ? 'Application' : 'Tutorial';
+const backHref = isApplication ? '/applications' : '/tutorials';
+const backLabel = isApplication ? 'Back to Applications' : 'Back to Tutorials';
 
 const allTutorials = await getCollection('tutorials');
 const tutorial = allTutorials.find((t) => {
@@ -35,16 +40,16 @@ const sourceUrl = tutorial ? `${githubRepo}/blob/main/src/content/tutorials/${tu
 const issuesUrl = `${githubRepo}/issues`;
 ---
 
-<Layout title={tutorial?.data.title ?? 'Tutorial Not Found'} description={tutorial?.data.description ?? 'The requested tutorial could not be found.'}>
+<Layout title={tutorial?.data.title ?? `${contentLabel} Not Found`} description={tutorial?.data.description ?? `The requested ${contentLabel.toLowerCase()} could not be found.`}>
 	<div class="bg-white min-h-screen">
 		{!tutorial ? (
 			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-				<h1 class="text-4xl font-bold text-slate-900 mb-4">Tutorial not found</h1>
+				<h1 class="text-4xl font-bold text-slate-900 mb-4">{contentLabel} not found</h1>
 				<p class="text-lg text-slate-600 mb-8">
-					The tutorial you requested could not be found.
+					The {contentLabel.toLowerCase()} you requested could not be found.
 				</p>
-				<a href="/tutorials" class="inline-flex items-center gap-2 px-4 py-2.5 bg-nvidia-green hover:bg-[#9aeb00] text-black font-semibold rounded-lg transition-colors">
-					Back to Tutorials
+				<a href={backHref} class="inline-flex items-center gap-2 px-4 py-2.5 bg-nvidia-green hover:bg-[#9aeb00] text-black font-semibold rounded-lg transition-colors">
+					{backLabel}
 				</a>
 			</div>
 		) : (
@@ -79,9 +84,9 @@ const issuesUrl = `${githubRepo}/issues`;
 
 				<div class="relative z-10 max-w-3xl">
 					<div class="flex items-center gap-4 mb-6 text-sm font-medium text-nvidia-green">
-						<a href="/tutorials" class="hover:text-white transition-colors flex items-center gap-1">
+						<a href={backHref} class="hover:text-white transition-colors flex items-center gap-1">
 							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-							Back to Tutorials
+							{backLabel}
 						</a>
 					</div>
 

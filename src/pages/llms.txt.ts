@@ -63,7 +63,8 @@ Jetson AI Lab covers the full workflow: initial device setup, inference engine i
 ## Getting Started
 
 - [Getting Started with Jetson](${SITE}/tutorials/getting-started-with-jetson/): Official developer kit user guides and remote SSH setup with VS Code or Cursor
-- [Jetson Agent Skills](${SITE}/tutorials/jetson-agent-skills/): Install Jetson Device Skills and Jetson BSP Skills so Cursor, Claude Code, or Codex can inspect a live Jetson and customize a Jetson Linux BSP
+- [A New Way to Build Edge AI](${SITE}/tutorials/ai-assisted-development-on-jetson/): Use AI coding agents directly on Jetson with practical prompts, guided workflows, and on-device validation
+- [Jetson Agent Skills](${SITE}/tutorials/jetson-agent-skills/): Install Jetson Device Skills and Jetson BSP Skills for Cursor, Claude Code, Codex, Cursor projects, or OpenClaw
 - [SSD + Docker Setup](${SITE}/tutorials/ssd-docker-setup/): Set up NVMe SSD storage and configure Docker on Jetson for optimal performance with AI containers
 - [RAM Optimization](${SITE}/tutorials/ram-optimization/): Optimize system RAM by disabling desktop GUI, unnecessary services, and mounting swap for large model workloads
 
@@ -81,10 +82,11 @@ Jetson AI Lab covers the full workflow: initial device setup, inference engine i
 
 ## Applications
 
-- [Multi-Modal AI Studio on Jetson](${SITE}/tutorials/multi-modal-ai-studio/): Run a conversational AI pipeline on Jetson Thor with on-device ASR, LLM/VLM, and TTS
-- [Live VLM WebUI](${SITE}/tutorials/live-vlm-webui/): Real-time Vision Language Model interface with WebRTC webcam streaming, OpenAI-compatible API, and interactive prompt editor
-- [OpenClaw on Jetson](${SITE}/tutorials/openclaw/): Fully local AI personal assistant on Jetson with OpenClaw and WhatsApp, no cloud APIs needed
-- [NanoOWL](${SITE}/tutorials/nanoowl/): OWL-ViT optimized for real-time open-vocabulary object detection on Jetson with TensorRT
+- [Applications Library](${SITE}/applications/): Explore complete end-to-end Jetson experiences that combine models, runtimes, interfaces, and optimization
+- [Reachy Mini Jetson Assistant](${SITE}/applications/reachy-mini-jetson-assistant/): Build a fully local, memory-optimized voice and vision robot assistant on Jetson Orin Nano using Jetson agent skills
+- [Multi-Modal AI Studio on Jetson](${SITE}/applications/multi-modal-ai-studio/): Run a conversational AI pipeline on Jetson Thor with on-device ASR, LLM/VLM, and TTS
+- [Live VLM WebUI](${SITE}/applications/live-vlm-webui/): Real-time Vision Language Model interface with WebRTC webcam streaming, OpenAI-compatible API support, and interactive prompt editor
+- [OpenClaw on Jetson](${SITE}/applications/openclaw/): Fully local AI personal assistant on Jetson with OpenClaw and WhatsApp, no cloud APIs needed
 
 ## Vision Language Models (VLMs)
 
@@ -105,7 +107,7 @@ Jetson AI Lab covers the full workflow: initial device setup, inference engine i
 const FOOTER = `## Other Pages
 
 - [Model Catalog](${SITE}/models/): Browse all supported models with one-click deployment commands for Jetson Orin and Thor
-- [Community Projects](${SITE}/projects/): Community-contributed projects, demos, and integrations built on Jetson
+- [Project Catalog](${SITE}/projects/): Browse complete community projects, demos, and integrations built on Jetson
 - [Jetson AI Lab Discord Community & Research Group](${SITE}/research/): Join the Jetson community for monthly research meetings, open-source edge AI collaboration, robotics projects, and the official Discord server
 `;
 

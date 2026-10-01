@@ -4,6 +4,7 @@ description: "A convenient interface for evaluating Vision Language Models in re
 category: "Applications"
 section: "Vision Language Models"
 order: 1
+hero_image: "/images/tutorials/live-vlm-webui.jpg"
 tags: ["vlm", "vision", "camera", "live-streaming", "webrtc", "ollama", "gemma", "qwen", "llama-vision", "multimodal"]
 featured: false
 authors:

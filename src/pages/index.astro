@@ -14,7 +14,7 @@ const categorySlug = (category: string) =>
 // Get featured community projects
 const allProjects = await getCollection('projects');
 const featuredProjects = allProjects
-  .filter(p => p.data.featured)
+  .filter(p => p.data.origin !== 'nvidia' && p.data.featured)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 
@@ -97,7 +97,7 @@ const sourceColors: Record<string, { bg: string; text: string }> = {
   <!-- Explore Section -->
   <section class="py-20 bg-nvidia-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- Models Card -->
         <a href="/models" class="group bg-nvidia-gray-50 rounded-xl p-8 border border-nvidia-gray-200 hover:border-nvidia-green/50 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 bg-nvidia-green/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -141,6 +141,28 @@ const sourceColors: Record<string, { bg: string; text: string }> = {
             </span>
           </div>
         </a>
+
+        <!-- Applications Card -->
+        <a href="/applications" class="group bg-nvidia-gray-50 rounded-xl p-8 border border-nvidia-gray-200 hover:border-nvidia-green/50 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-nvidia-green/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="relative">
+            <div class="w-12 h-12 bg-nvidia-green/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-nvidia-green/20 transition-colors">
+              <svg class="w-6 h-6 text-nvidia-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h6v6H4V6zm10 0h6v6h-6V6zM4 16h6v2H4v-2zm10 0h6v2h-6v-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-nvidia-black mb-3 group-hover:text-nvidia-green transition-colors">Explore Applications</h3>
+            <p class="text-nvidia-gray-600 mb-6 text-lg leading-relaxed">
+              See complete Jetson experiences that combine models, runtimes, interfaces, and optimization.
+            </p>
+            <span class="inline-flex items-center text-nvidia-green font-semibold group-hover:gap-3 gap-2 transition-all">
+              Browse all applications
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -157,8 +179,11 @@ const sourceColors: Record<string, { bg: string; text: string }> = {
         {sortedCategories.map(([key, cat]) => {
           const bgClass = cat.colorClass.split(' ')[0];
           const textClass = cat.colorClass.split(' ')[1];
+          const href = key === 'Applications'
+            ? '/applications'
+            : `/tutorials/#section-${categorySlug(key)}`;
           return (
-            <a href={`/tutorials/#section-${categorySlug(key)}`} class="group bg-nvidia-white rounded-xl p-6 border border-nvidia-gray-200 hover:border-nvidia-green hover:shadow-md transition-all duration-200">
+            <a href={href} class="group bg-nvidia-white rounded-xl p-6 border border-nvidia-gray-200 hover:border-nvidia-green hover:shadow-md transition-all duration-200">
               <div class={`w-12 h-12 ${bgClass} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                 <span class="text-2xl">{cat.icon}</span>
               </div>
@@ -171,16 +196,16 @@ const sourceColors: Record<string, { bg: string; text: string }> = {
     </div>
   </section>
 
-  <!-- Community Projects Section -->
+  <!-- Project Catalog Section -->
   <section class="py-20 bg-nvidia-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-12">
         <div>
-          <h2 class="text-3xl font-bold text-nvidia-black mb-2">Community Projects</h2>
-          <p class="text-lg text-nvidia-gray-600">See what the community is building with Jetson</p>
+          <h2 class="text-3xl font-bold text-nvidia-black mb-2">Project Catalog</h2>
+          <p class="text-lg text-nvidia-gray-600">Explore complete community projects built with Jetson</p>
         </div>
         <a href="/projects" class="hidden sm:inline-flex items-center gap-2 text-nvidia-green font-semibold hover:gap-3 transition-all">
-          View all projects
+          View project catalog
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
