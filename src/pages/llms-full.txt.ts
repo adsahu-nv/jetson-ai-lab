@@ -5,7 +5,6 @@ const SITE = 'https://www.jetson-ai-lab.com';
 
 const TUTORIAL_SLUG_MAP: Record<string, string> = {
 	'applications/live-vlm-webui': 'live-vlm-webui',
-	'applications/nanoowl': 'nanoowl',
 	'applications/openclaw': 'openclaw',
 	'fundamentals/gemma4-on-jetson': 'gemma4-on-jetson',
 	'fundamentals/genai-benchmarking': 'genai-benchmarking',

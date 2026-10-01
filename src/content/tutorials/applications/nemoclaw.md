@@ -4,6 +4,7 @@ description: "An easy introduction to NVIDIA NemoClaw on Jetson using a free loc
 category: "Applications"
 section: "AI Agents"
 order: 3
+hero_image: "/images/tutorials/nemoclaw-telegram-chat.png"
 tags: ["nemoclaw", "ollama", "telegram", "nemotron", "jetson-thor", "jetson-orin", "ai-agent", "local-llm", "tool-calling"]
 isNew: true
 ---

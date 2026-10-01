@@ -5,7 +5,7 @@ author: "NVIDIA AI-IOT"
 date: "2026-02-27"
 origin: "nvidia"
 source: "NVIDIA"
-link: "https://www.jetson-ai-lab.com/tutorials/reachy-mini-jetson-assistant/"
+link: "https://www.jetson-ai-lab.com/applications/reachy-mini-jetson-assistant/"
 image: "/images/tutorials/reachy-mini-jetson-assistant/reachy-mini-live-demo.png"
 featured: false
 jetson: ["Jetson Orin Nano"]

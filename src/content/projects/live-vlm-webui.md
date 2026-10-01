@@ -5,7 +5,7 @@ author: "NVIDIA AI-IOT"
 date: "2025-11-04"
 origin: "nvidia"
 source: "NVIDIA"
-link: "https://www.jetson-ai-lab.com/tutorials/live-vlm-webui/"
+link: "https://www.jetson-ai-lab.com/applications/live-vlm-webui/"
 image: "https://github.com/NVIDIA-AI-IOT/live-vlm-webui/raw/main/docs/images/chrome_app-running_light-theme.jpg"
 featured: false
 jetson: ["Jetson Thor", "Jetson AGX Orin", "Jetson Orin Nano"]

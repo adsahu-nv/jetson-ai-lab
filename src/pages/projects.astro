@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
-const allProjects = await getCollection('projects');
+const allProjects = (await getCollection('projects'))
+  .filter((project) => project.data.origin !== 'nvidia');
 allProjects.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
 const allSources = [...new Set(allProjects.map((project) => project.data.source))].sort();
@@ -18,8 +19,8 @@ const allTags = [...new Set(allProjects.flatMap((project) => project.data.tags |
 ---
 
 <Layout
-  title="Community Projects"
-  description="Community projects showcasing generative AI implementations on the NVIDIA Jetson platform."
+  title="Project Catalog"
+  description="Community projects showcasing complete AI implementations on the Jetson platform."
 >
   <section class="relative bg-nvidia-black text-white py-24 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
@@ -30,11 +31,11 @@ const allTags = [...new Set(allProjects.flatMap((project) => project.data.tags |
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-nvidia-white to-nvidia-gray-300">
-          Community Projects
+          Project Catalog
         </span>
       </h1>
       <p class="text-xl text-nvidia-gray-300 max-w-2xl mx-auto leading-relaxed">
-        Discover guides, tutorials, and articles contributed by the community showcasing generative AI on the Jetson platform.
+        Discover complete community projects built on the Jetson platform.
       </p>
 
       <div class="mt-10 flex flex-wrap justify-center gap-4">
@@ -159,7 +160,7 @@ const allTags = [...new Set(allProjects.flatMap((project) => project.data.tags |
 
   <section class="py-16 bg-nvidia-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold text-nvidia-black mb-4">Share Your Project</h2>
+      <h2 class="text-3xl font-bold text-nvidia-black mb-4">Add to the Project Catalog</h2>
       <p class="text-lg text-nvidia-gray-600 mb-8">
         Built something cool with Jetson and generative AI? We'd love to feature your project!
       </p>

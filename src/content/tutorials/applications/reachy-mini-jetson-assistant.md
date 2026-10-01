@@ -4,6 +4,7 @@ description: "Use Jetson agent skills to build a memory-optimized multimodal app
 category: "Applications"
 section: "Robotics"
 order: 4
+hero_image: "/images/tutorials/reachy-mini-jetson-assistant/reachy-mini-live-demo.png"
 tags: ["reachy-mini", "jetson-orin-nano", "robotics", "vlm", "stt", "tts", "face-tracking", "llama.cpp", "jetson-device-skills", "multimodal"]
 isNew: true
 authors:

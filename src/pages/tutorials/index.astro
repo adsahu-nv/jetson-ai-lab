@@ -5,7 +5,8 @@ import TutorialSection from '../../components/TutorialSection.astro';
 import TutorialCard from '../../components/TutorialCard.astro';
 import categoryConfig from '../../data/categories.json';
 
-const allTutorials = await getCollection('tutorials');
+const allTutorials = (await getCollection('tutorials'))
+  .filter((tutorial) => tutorial.data.category !== 'Applications');
 const featuredTutorials = allTutorials.filter(t => t.data.featured);
 
 // Group tutorials by category

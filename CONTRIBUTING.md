@@ -46,12 +46,29 @@ git checkout -b docs/your-change
 
 | Contribution | Location |
 |---|---|
-| Tutorials | `src/content/tutorials/` and `src/pages/tutorials/` |
+| Tutorials | `src/content/tutorials/` (except `applications/`) and `src/pages/tutorials/` |
+| Applications | `src/content/tutorials/applications/` |
 | Model pages | `src/content/models/` |
-| Community projects | `src/content/projects/` |
+| Project Catalog entries | `src/content/projects/` |
 | Benchmarks | `src/data/benchmarks.json` |
 | Downloadable scripts | `public/code-samples/` |
 | Homepage content | `src/content/home.json` |
+
+### Choose the Right Content Type
+
+Jetson AI Lab separates reusable technical guidance from complete applications and externally maintained projects:
+
+- **Tutorials** teach a focused, reusable building block that developers can combine with other components. Examples include setting up a runtime, serving a model, optimizing memory, or integrating one Jetson capability. Tutorial instructions must add original, Jetson-specific value and be validated on the hardware and software versions they name.
+- **Applications** show a complete end-to-end experience assembled from multiple building blocks, such as a conversational assistant, robotics workflow, or live vision application. Application content belongs in `src/content/tutorials/applications/` and is surfaced from the top-level `/applications/` page rather than the Tutorials index.
+- **Project Catalog entries** showcase complete community projects whose canonical documentation and source live elsewhere. NVIDIA-maintained end-to-end experiences belong under Applications. Keep catalog entries concise: explain what the project demonstrates, identify supported Jetson hardware and key technologies, include representative media, and link to the canonical repository or article.
+
+Do not reproduce an external project's README as a Jetson AI Lab tutorial or application solely to provide a different UI. A distinctive project may receive deeper coverage when Jetson AI Lab adds meaningful material that is not already available upstream, such as independently validated results, Jetson-specific integration guidance, performance analysis, troubleshooting, or reusable technical insights. Reviewers may ask contributors to consolidate overlapping examples or submit a Project Catalog entry instead.
+
+As a quick rule:
+
+- Teaching one reusable capability → **Tutorial**
+- Combining several capabilities into a complete experience → **Application**
+- Showcasing an externally maintained repository or demo → **Project Catalog**
 
 For tutorials, follow `TUTORIAL_TEMPLATE.md` and include `authors` in the frontmatter. For model pages and inference commands, follow `docs/jetson-matrix-and-run-modal.md` and existing model examples. All content must match the schemas in `src/content/config.ts`.
 
